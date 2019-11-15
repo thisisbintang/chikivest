@@ -1,10 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-{{--    <div class="row page-title-header">--}}
-        <div class="col-md-12">
+    <div class="row page-title-header">
+        <div class="col-12">
+            <div class="page-header">
+                <h4 class="page-title">Investor</h4>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 grid-margin">
             <div class="card">
-                <div class="card-header">Investors</div>
                 <div class="card-body">
                     <a href="{{ route('investors.create') }}" class="btn btn-success btn-sm"
                        title="Add New Investor">
@@ -86,7 +92,7 @@
                 </div>
             </div>
         </div>
-{{--    </div>--}}
+    </div>
 @endsection
 @section('script')
     <script src="{{asset('js/demo_1/dashboard.js')}}"></script>
