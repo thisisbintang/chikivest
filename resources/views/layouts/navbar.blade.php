@@ -1,9 +1,9 @@
 <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
     <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
         <a class="navbar-brand brand-logo" href="#">
-            <img src="{{asset('images/logo1.svg')}}" alt="logo" style="width: 100px;height: 100px"/> </a>
+            <img src="{{asset('images/logo.svg')}}" alt="logo"/> </a>
         <a class="navbar-brand brand-logo-mini" href="#">
-            <img src="{{asset('images/logo-mini1.svg')}}" alt="logo"/> </a>
+            <img src="{{asset('images/logo-mini.svg')}}" alt="logo"/> </a>
     </div>
     <div class="navbar-menu-wrapper d-flex align-items-center">
         <form class="ml-auto search-form d-none d-md-block" action="#">

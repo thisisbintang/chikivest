@@ -8,7 +8,7 @@
                 <div class="quick-link-wrapper ml-2 d-md-flex flex-md-wrap">
                     <ul class="quick-links">
                         <li><a href="{{route('investors.index')}}">Data Pengepul</a></li>
-                        <li>Tambah Data Pengepul</li>
+                        <li><strong>Tambah Data Pengepul</strong></li>
                     </ul>
                 </div>
             </div>

@@ -8,7 +8,7 @@
                 <div class="quick-link-wrapper ml-2 d-md-flex flex-md-wrap">
                     <ul class="quick-links">
                         <li><a href="{{route('breeders.index')}}">Data Pembibit</a></li>
-                        <li>Tambah Data Pembibit</li>
+                        <li><strong>Tambah Data Pembibit</strong></li>
                     </ul>
                 </div>
             </div>

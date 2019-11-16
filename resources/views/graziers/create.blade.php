@@ -8,7 +8,7 @@
                 <div class="quick-link-wrapper ml-2 d-md-flex flex-md-wrap">
                     <ul class="quick-links">
                         <li><a href="{{route('graziers.index')}}">Data Peternak</a></li>
-                        <li>Tambah Data Peterak</li>
+                        <li><strong>Tambah Data Peterak</strong></li>
                     </ul>
                 </div>
             </div>
