@@ -1,37 +1,37 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-9">
-                <div class="card">
-                    <div class="card-header">Tambah Baru Peternak</div>
-                    <div class="card-body">
-                        <a href="{{ route('graziers.index') }}" title="Back">
-                            <button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i>
-                                Kembali
-                            </button>
-                        </a>
-                        <br/>
-                        <br/>
+    <div class="row page-title-header">
+        <div class="col-12">
+            <div class="page-header">
+                <h4 class="page-title">Tambah Data Peternak</h4>
+                <div class="quick-link-wrapper ml-2 d-md-flex flex-md-wrap">
+                    <ul class="quick-links">
+                        <li><a href="{{route('graziers.index')}}">Data Peternak</a></li>
+                        <li>Tambah Data Peterak</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-body">
+                    @if ($errors->any())
+                        <ul class="alert alert-danger">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    @endif
 
-                        @if ($errors->any())
-                            <ul class="alert alert-danger">
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        @endif
+                    <form method="POST" action="{{ route('graziers.store') }}" accept-charset="UTF-8"
+                          class="form-horizontal" enctype="multipart/form-data">
+                        {{ csrf_field() }}
+                        @include ('graziers.form', ['formMode' => 'create'])
+                    </form>
 
-                        <form method="POST" action="{{ route('graziers.store') }}" accept-charset="UTF-8"
-                              class="form-horizontal" enctype="multipart/form-data">
-                            {{ csrf_field() }}
-
-                            @include ('graziers.form', ['formMode' => 'create'])
-
-                        </form>
-
-                    </div>
                 </div>
             </div>
         </div>

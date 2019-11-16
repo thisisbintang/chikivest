@@ -2,14 +2,19 @@
 
 @section('content')
     <div class="row page-title-header">
-        <div class="col-md-9">
+        <div class="col-12">
+            <div class="page-header">
+                <h4 class="page-title">Data Peternak</h4>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 grid-margin">
             <div class="card">
-                <div class="card-header">Peternak</div>
                 <div class="card-body">
-                    <a href="{{ route('graziers.create')}}" class="btn btn-success btn-sm" title="Add New Grazier">
+                    <a href="{{ route('graziers.create')}}" class="btn btn-success btn-sm" title="Tambah Baru">
                         <i class="fa fa-plus" aria-hidden="true"></i> Tambah Baru
                     </a>
-
                     <form method="GET" action="{{ url('/graziers') }}" accept-charset="UTF-8"
                           class="form-inline my-2 my-lg-0 float-right" role="search">
                         <div class="input-group">
@@ -22,7 +27,6 @@
                                 </span>
                         </div>
                     </form>
-
                     <br/>
                     <br/>
                     <div class="table-responsive">

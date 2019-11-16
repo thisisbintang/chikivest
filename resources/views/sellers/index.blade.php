@@ -2,14 +2,19 @@
 
 @section('content')
     <div class="row page-title-header">
-        <div class="col-md-9">
+        <div class="col-12">
+            <div class="page-header">
+                <h4 class="page-title">Data Pengepul</h4>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 grid-margin">
             <div class="card">
-                <div class="card-header">Pengepul</div>
                 <div class="card-body">
-                    <a href="{{ route('sellers.create') }}" class="btn btn-success btn-sm" title="Add New Seller">
+                    <a href="{{ route('sellers.create') }}" class="btn btn-success btn-sm" title="Tambah Data Pengepul">
                         <i class="fa fa-plus" aria-hidden="true"></i> Tambah Baru
                     </a>
-
                     <form method="GET" action="{{ url('/sellers') }}" accept-charset="UTF-8"
                           class="form-inline my-2 my-lg-0 float-right" role="search">
                         <div class="input-group">
@@ -53,12 +58,12 @@
                                     <td>{{ $item->email }}</td>
                                     <td>{{ $item->username }}</td>
                                     <td>
-                                        <a href="{{ route('sellers.show', $item->id) }}" title="View Seller">
+                                        <a href="{{ route('sellers.show', $item->id) }}" title="Lihat Data Pengepul">
                                             <button class="btn btn-info btn-sm"><i class="fa fa-eye"
                                                                                    aria-hidden="true"></i> Lihat
                                             </button>
                                         </a>
-                                        <a href="{{ route('sellers.edit', $item->id) }}" title="Edit Seller">
+                                        <a href="{{ route('sellers.edit', $item->id) }}" title="Ubah Data Pengepul">
                                             <button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o"
                                                                                       aria-hidden="true"></i> Ubah
                                             </button>
@@ -68,7 +73,7 @@
                                               accept-charset="UTF-8" style="display:inline">
                                             {{ method_field('DELETE') }}
                                             {{ csrf_field() }}
-                                            <button type="submit" class="btn btn-danger btn-sm" title="Delete Seller"
+                                            <button type="submit" class="btn btn-danger btn-sm" title="Hapus Data Pengepul"
                                                     onclick="return confirm(&quot;Confirm delete?&quot;)"><i
                                                         class="fa fa-trash-o" aria-hidden="true"></i> Hapus
                                             </button>
