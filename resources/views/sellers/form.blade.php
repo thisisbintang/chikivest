@@ -67,5 +67,6 @@
     </a>
 
     <input class="btn btn-primary btn-sm" type="submit"
-           value="{{ $formMode === 'edit' ? 'Ubah Data Pengepul' : 'Tambah Data Pengepul' }}">
+           value="{{ $formMode === 'edit' ? 'Ubah' : 'Buat' }}"
+           title="{{ $formMode === 'edit' ? 'Ubah Data Pengepul' : 'Tambah Data Pengepul' }}">
 </div>
