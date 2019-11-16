@@ -59,11 +59,11 @@ class InvestorsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param Requests\InvestorFormValidate $request
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function store(Requests\CustomValidateRequest $request)
+    public function store(Requests\InvestorFormValidate $request)
     {
 
         $requestData = $request->all();

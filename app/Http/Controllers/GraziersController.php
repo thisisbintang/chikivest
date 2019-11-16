@@ -62,11 +62,11 @@ class GraziersController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param Requests\GrazierFormValidate $request
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function store(Request $request)
+    public function store(Requests\GrazierFormValidate $request)
     {
 
         $requestData = $request->all();

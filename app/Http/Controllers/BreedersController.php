@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 
 class BreedersController extends Controller
 {
+
     /**
      * Create a new controller instance.
      *
@@ -62,13 +63,12 @@ class BreedersController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param Requests\BreederFormValidate $request
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function store(Request $request)
+    public function store(Requests\BreederFormValidate $request)
     {
-
         $requestData = $request->all();
 
         Breeder::create($requestData);
