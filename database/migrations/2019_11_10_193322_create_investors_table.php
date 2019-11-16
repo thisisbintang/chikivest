@@ -14,18 +14,19 @@ class CreateInvestorsTable extends Migration
     {
         Schema::create('investors', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
-            $table->string('name')->nullable();
+            $table->string('name');
             $table->string('address')->nullable();
             $table->string('company_name')->nullable();
             $table->string('company_address')->nullable();
             $table->string('phone_number')->nullable();
             $table->string('actor_status')->nullable();
             $table->string('short_description')->nullable();
-            $table->string('email')->nullable();
-            $table->string('username')->nullable();
-            $table->string('password')->nullable();
-            });
+            $table->string('email')->unique();
+            $table->string('username')->unique();
+            $table->string('password');
+            $table->rememberToken();
+            $table->timestamps();
+        });
     }
 
     /**
