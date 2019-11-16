@@ -63,11 +63,11 @@ class InvestorsController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function store(Request $request)
+    public function store(Requests\CustomValidateRequest $request)
     {
-        
+
         $requestData = $request->all();
-        
+
         Investor::create($requestData);
 
         return redirect('investors')->with('flash_message', 'Investor added!');
@@ -76,7 +76,7 @@ class InvestorsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      *
      * @return \Illuminate\View\View
      */
@@ -90,7 +90,7 @@ class InvestorsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      *
      * @return \Illuminate\View\View
      */
@@ -105,15 +105,15 @@ class InvestorsController extends Controller
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @param  int  $id
+     * @param int $id
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function update(Request $request, $id)
     {
-        
+
         $requestData = $request->all();
-        
+
         $investor = Investor::findOrFail($id);
         $investor->update($requestData);
 
@@ -123,7 +123,7 @@ class InvestorsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
