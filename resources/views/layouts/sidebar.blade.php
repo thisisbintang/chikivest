@@ -15,7 +15,7 @@
         <li class="nav-item">
             <a class="nav-link" href="#">
                 <i class="menu-icon typcn typcn-document-text"></i>
-                <span class="menu-title">Dashboard</span>
+                <span class="menu-title">Beranda</span>
             </a>
         </li>
         <li class="nav-item">
