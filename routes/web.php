@@ -18,10 +18,30 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/investor', 'Users\Investor\HomeController@index')->name('investor.home');
-Route::get('/breeder', 'Users\Breeder\HomeController@index')->name('breeder.home');
-Route::get('/grazier', 'Users\Grazier\HomeController@index')->name('grazier.home');
-Route::get('/seller', 'Users\Seller\HomeController@index')->name('seller.home');
+
+Route::group(['prefix' => 'investor'], function () {
+    Route::get('/login', 'Users\Investor\Auth\LoginController@showLoginForm')->name('investor.login');
+    Route::post('/login', 'Users\Investor\Auth\LoginController@login')->name('investor.login');
+    Route::get('/', 'Users\Investor\HomeController@index')->name('investor.home');
+});
+
+Route::group(['prefix' => 'breeder'], function () {
+    Route::get('/login', 'Users\Breeder\Auth\LoginController@showLoginForm')->name('breeder.login');
+    Route::post('/login', 'Users\Breeder\Auth\LoginController@login')->name('breeder.login');
+    Route::get('/', 'Users\Breeder\HomeController@index')->name('breeder.home');
+});
+
+Route::group(['prefix' => 'grazier'], function () {
+    Route::get('/login', 'Users\Grazier\Auth\LoginController@showLoginForm')->name('grazier.login');
+    Route::post('/login', 'Users\Grazier\Auth\LoginController@login')->name('grazier.login');
+    Route::get('/', 'Users\Grazier\HomeController@index')->name('grazier.home');
+});
+
+Route::group(['prefix' => 'seller'], function () {
+    Route::get('/login', 'Users\Seller\Auth\LoginController@showLoginForm')->name('seller.login');
+    Route::post('/login', 'Users\Seller\Auth\LoginController@login')->name('seller.login');
+    Route::get('/', 'Users\Seller\HomeController@index')->name('seller.home');
+});
 
 Route::resource('investors', 'InvestorsController');
 Route::resource('graziers', 'GraziersController');
