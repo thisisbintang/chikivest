@@ -9,6 +9,8 @@ class Investor extends Model
 {
     use Notifiable;
 
+    protected $guard = 'investor';
+
     /**
      * The database table used by the model.
      *

@@ -45,6 +45,38 @@ return [
             'driver' => 'token',
             'provider' => 'users',
         ],
+        'investor' => [
+            'driver' => 'session',
+            'provider' => 'investors',
+        ],
+        'api-investor' => [
+            'driver' => 'token',
+            'provider' => 'investors',
+        ],
+        'grazier' => [
+            'driver' => 'session',
+            'provider' => 'graziers',
+        ],
+        'api-grazier' => [
+            'driver' => 'token',
+            'provider' => 'graziers',
+        ],
+        'breeder' => [
+            'driver' => 'session',
+            'provider' => 'breeders',
+        ],
+        'api-breeder' => [
+            'driver' => 'token',
+            'provider' => 'breeders',
+        ],
+        'seller' => [
+            'driver' => 'session',
+            'provider' => 'sellers',
+        ],
+        'api-seller' => [
+            'driver' => 'token',
+            'provider' => 'sellers',
+        ],
     ],
 
     /*
@@ -68,6 +100,22 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
+        ],
+        'investors' => [
+            'driver' => 'eloquent',
+            'model' => App\Investor::class,
+        ],
+        'breeders' => [
+            'drivers' => 'eloquent',
+            'model' => App\Breeder::class,
+        ],
+        'graziers' => [
+            'drivers' => 'eloquent',
+            'model' => App\Grazier::class,
+        ],
+        'sellers' => [
+            'drivers' => 'eloquent',
+            'model' => App\Seller::class,
         ],
 
         // 'users' => [
@@ -94,6 +142,26 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+        'investors' => [
+            'provider' => 'investors',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+        'breeders' => [
+            'provider' => 'breeders',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+        'graziers' => [
+            'provider' => 'graziers',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+        'sellers' => [
+            'provider' => 'sellers',
             'table' => 'password_resets',
             'expire' => 60,
         ],

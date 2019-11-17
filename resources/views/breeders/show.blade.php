@@ -22,10 +22,6 @@
                         <table class="table">
                             <tbody>
                             <tr>
-                                <th>ID</th>
-                                <td>{{ $breeder->id }}</td>
-                            </tr>
-                            <tr>
                                 <th> Nama</th>
                                 <td> {{ $breeder->name }} </td>
                             </tr>

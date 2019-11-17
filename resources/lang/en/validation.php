@@ -82,7 +82,7 @@ return [
         'string' => 'The :attribute must be :size characters.',
         'array' => 'The :attribute must contain :size items.',
     ],
-    'string' => 'The :attribute must be a string.',
+    'string' => 'Kolom :attribute harus sebuah string.',
     'timezone' => 'The :attribute must be a valid zone.',
     'unique' => 'Kolom :attribute sudah digunakan.',
     'uploaded' => 'The :attribute failed to upload.',
@@ -117,6 +117,14 @@ return [
     */
 
     'attributes' => [
-        'email' => 'alamat email', 'name' => 'nama lengkap'],
+        'email' => 'alamat email',
+        'name' => 'nama lengkap',
+        'address' => 'alamat rumah',
+        'company_name' => 'nama perusahaan',
+        'company_address' => 'alamat perusahaan',
+        'phone_number' => 'nomor telepon',
+        'actor_status' => 'status aktor',
+        'short_description' => 'deskripsi singkat',
+    ],
 
 ];

@@ -12,7 +12,8 @@
         <div class="col-md-12 grid-margin">
             <div class="card">
                 <div class="card-body">
-                    <a href="{{ route('breeders.create') }}" class="btn btn-success btn-sm" title="Tambah Data Pembibit">
+                    <a href="{{ route('breeders.create') }}" class="btn btn-success btn-sm"
+                       title="Tambah Data Pembibit">
                         <i class="fa fa-plus" aria-hidden="true"></i> Tambah Baru
                     </a>
                     <form method="GET" action="{{ url('/breeders') }}" accept-charset="UTF-8"
@@ -31,18 +32,14 @@
                     <br/>
                     <br/>
                     <div class="table-responsive">
-                        <table class="table">
-                            <thead>
+                        <table class="table table-hover">
+                            <thead class="thead-light">
                             <tr>
                                 <th>#</th>
                                 <th>Nama</th>
-                                <th>Alamat Rumah</th>
-                                <th>Nama Perusahaan</th>
-                                <th>Alamat Perusahaan</th>
-                                <th>Nomor Telepon</th>
-                                <th>Deskripsi Singkat</th>
                                 <th>Alamat Email</th>
                                 <th>Username</th>
+                                <th>Aksi</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -50,21 +47,16 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->name }}</td>
-                                    <td>{{ $item->address }}</td>
-                                    <td>{{ $item->company_name }}</td>
-                                    <td>{{ $item->company_address }}</td>
-                                    <td>{{ $item->phone_number }}</td>
-                                    <td>{{ $item->short_description }}</td>
                                     <td>{{ $item->email }}</td>
                                     <td>{{ $item->username }}</td>
                                     <td>
                                         <a href="{{ route('breeders.show', $item->id) }}" title="Lihat Data Pembibit">
-                                            <button class="btn btn-info btn-sm"><i class="fa fa-eye"
+                                            <button class="btn btn-info "><i class="fa fa-eye"
                                                                                    aria-hidden="true"></i> Lihat
                                             </button>
                                         </a>
                                         <a href="{{ route('breeders.edit', $item->id) }}" title="Ubah Data Pembibit">
-                                            <button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o"
+                                            <button class="btn btn-primary "><i class="fa fa-pencil-square-o"
                                                                                       aria-hidden="true"></i> Ubah
                                             </button>
                                         </a>
@@ -73,7 +65,8 @@
                                               accept-charset="UTF-8" style="display:inline">
                                             {{ method_field('DELETE') }}
                                             {{ csrf_field() }}
-                                            <button type="submit" class="btn btn-danger btn-sm" title="Hapus Data Pembibit"
+                                            <button type="submit" class="btn btn-danger "
+                                                    title="Hapus Data Pembibit"
                                                     onclick="return confirm(&quot;Confirm delete?&quot;)"><i
                                                         class="fa fa-trash-o" aria-hidden="true"></i> Hapus
                                             </button>
