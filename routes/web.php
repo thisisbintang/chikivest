@@ -18,6 +18,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/investor', 'Users\Investor\HomeController@index')->name('investor.home');
+Route::get('/breeder', 'Users\Breeder\HomeController@index')->name('breeder.home');
+Route::get('/grazier', 'Users\Grazier\HomeController@index')->name('grazier.home');
+Route::get('/seller', 'Users\Seller\HomeController@index')->name('seller.home');
 
 Route::resource('investors', 'InvestorsController');
 Route::resource('graziers', 'GraziersController');

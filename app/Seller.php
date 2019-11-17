@@ -9,6 +9,8 @@ class Seller extends Model
 {
     use Notifiable;
 
+    protected $guard = 'seller';
+
     /**
      * The database table used by the model.
      *

@@ -8,6 +8,7 @@ use Illuminate\Notifications\Notifiable;
 class Breeder extends Model
 {
     use Notifiable;
+    protected $guard = 'breeder';
 
     /**
      * The database table used by the model.
@@ -17,10 +18,10 @@ class Breeder extends Model
     protected $table = 'breeders';
 
     /**
-    * The database primary key value.
-    *
-    * @var string
-    */
+     * The database primary key value.
+     *
+     * @var string
+     */
     protected $primaryKey = 'id';
 
     /**
@@ -38,5 +39,5 @@ class Breeder extends Model
     protected $hidden = [
         'password', 'remember_token',
     ];
-    
+
 }

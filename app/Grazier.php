@@ -8,7 +8,7 @@ use Illuminate\Notifications\Notifiable;
 class Grazier extends Model
 {
     use Notifiable;
-
+    protected $guard = 'grazier';
     /**
      * The database table used by the model.
      *
