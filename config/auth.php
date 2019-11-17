@@ -105,18 +105,19 @@ return [
             'driver' => 'eloquent',
             'model' => App\Investor::class,
         ],
-        'breeders' => [
-            'drivers' => 'eloquent',
-            'model' => App\Breeder::class,
-        ],
         'graziers' => [
-            'drivers' => 'eloquent',
+            'driver' => 'eloquent',
             'model' => App\Grazier::class,
         ],
+        'breeders' => [
+            'driver' => 'eloquent',
+            'model' => App\Breeder::class,
+        ],
         'sellers' => [
-            'drivers' => 'eloquent',
+            'driver' => 'eloquent',
             'model' => App\Seller::class,
         ],
+
 
         // 'users' => [
         //     'driver' => 'database',
