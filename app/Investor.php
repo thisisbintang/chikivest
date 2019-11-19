@@ -2,10 +2,11 @@
 
 namespace App;
 
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
-class Investor extends Model
+class Investor extends Authenticatable
 {
     use Notifiable;
 
@@ -40,6 +41,5 @@ class Investor extends Model
     protected $hidden = [
         'password', 'remember_token',
     ];
-
 
 }

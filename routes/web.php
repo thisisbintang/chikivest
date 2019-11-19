@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', 'HomeController@index')->name('home');
 
 Auth::routes();
 
@@ -21,7 +20,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'investor'], function () {
     Route::get('/login', 'Users\Investor\Auth\LoginController@showLoginForm')->name('investor.login');
-    Route::post('/login', 'Users\Investor\Auth\LoginController@login')->name('investor.login');
+    Route::post('/login', 'Users\Investor\Auth\LoginController@login')->name('investor.login.submit');
     Route::get('/', 'Users\Investor\HomeController@index')->name('investor.home');
 });
 
@@ -47,3 +46,4 @@ Route::resource('investors', 'InvestorsController');
 Route::resource('graziers', 'GraziersController');
 Route::resource('breeders', 'BreedersController');
 Route::resource('sellers', 'SellersController');
+Route::resource('investment-packages', 'InvestmentPackagesController');
