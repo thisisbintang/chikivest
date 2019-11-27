@@ -28,12 +28,6 @@
            value="{{ isset($grazier->phone_number) ? $grazier->phone_number : old('phone_number')}}">
     {!! $errors->first('phone_number', '<small class="text-danger">:message</small>') !!}
 </div>
-<div class="form-group {{ $errors->has('actor_status') ? 'has-error' : ''}}">
-    <label for="actor_status" class="control-label">{{ 'Status Aktor' }}</label>
-    <input class="form-control" name="actor_status" type="text" id="actor_status"
-           value="{{ isset($grazier->actor_status) ? $grazier->actor_status : old('actor_status')}}">
-    {!! $errors->first('actor_status', '<small class="text-danger">:message</small>') !!}
-</div>
 <div class="form-group {{ $errors->has('short_description') ? 'has-error' : ''}}">
     <label for="short_description" class="control-label">{{ 'Deskripsi Singkat' }}</label>
     <input class="form-control" name="short_description" type="text" id="short_description"

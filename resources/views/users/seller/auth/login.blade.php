@@ -61,12 +61,6 @@
                                     <input type="checkbox" class="form-check-input" checked> Ingat saya
                                 </label>
                             </div>
-                            <a href="#" class="text-small forgot-password text-black">Lupa
-                                Password</a>
-                        </div>
-                        <div class="text-block text-center my-3">
-                            <span class="text-small font-weight-semibold">Belum penya akun?</span>
-                            <a href="#" class="text-black text-small">Buat akun</a>
                         </div>
                     </form>
                 </div>

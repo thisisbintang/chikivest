@@ -32,7 +32,7 @@
         <div class="row w-100">
             <div class="col-lg-4 mx-auto">
                 <div class="auto-form-wrapper">
-                    <form method="POST" action="{{route('seller.login')}}">
+                    <form method="POST" action="{{route('grazier.login')}}">
                         {{csrf_field()}}
                         <div class="form-group {{$errors->has('username') ? 'has-error' : ''}}">
                             <label class="label">Username</label>
@@ -61,12 +61,6 @@
                                     <input type="checkbox" class="form-check-input" checked> Ingat saya
                                 </label>
                             </div>
-                            <a href="#" class="text-small forgot-password text-black">Lupa
-                                Password</a>
-                        </div>
-                        <div class="text-block text-center my-3">
-                            <span class="text-small font-weight-semibold">Belum penya akun?</span>
-                            <a href="#" class="text-black text-small">Buat akun</a>
                         </div>
                     </form>
                 </div>

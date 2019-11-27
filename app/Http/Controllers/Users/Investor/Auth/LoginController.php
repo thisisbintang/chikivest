@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Users\Investor\Auth;
 
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -18,6 +19,13 @@ class LoginController extends Controller
  | to conveniently provide its functionality to your applications.
  |
  */
+
+    use AuthenticatesUsers;
+
+    protected function redirectTo()
+    {
+        return route('investor.home');
+    }
 
     /**
      * Create a new controller instance.
@@ -40,42 +48,37 @@ class LoginController extends Controller
     }
 
     /**
-     * Handle a login request to the application.
+     * Get the login username to be used by the controller.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Http\JsonResponse
+     * @return string
      */
-    public function login(Request $request)
+    public function username()
     {
-        $this->validateLogin($request);
-
-        $credential = [
-            'username' => $request->username,
-            'password' => $request->password,
-        ];
-
-        // Attempt to log the user in
-        if (Auth::guard('investor')->attempt($credential, $request->member)) {
-            // If login succesful, then redirect to their intended location
-            return redirect()->intended(route('investor.home'));
-        }
-
-        // If unsuccessful, then redirect back to the login with the form data
-        return redirect()->back()->withInput($request->only('username', 'remember'));
-
+        return 'username';
     }
 
     /**
-     * Validate the user login request.
+     * Log the user out of the application.
      *
      * @param \Illuminate\Http\Request $request
-     * @return void
+     * @return \Illuminate\Http\Response
      */
-    protected function validateLogin(Request $request)
+    public function logout(Request $request)
     {
-        $this->validate($request, [
-            'username' => 'required|string|min:3|max:16',
-            'password' => 'required|string|min:6'
-        ]);
+        $this->guard()->logout();
+
+        $request->session()->invalidate();
+
+        return redirect()->route('investor.home');
+    }
+
+    /**
+     * Get the guard to be used during authentication.
+     *
+     * @return \Illuminate\Contracts\Auth\StatefulGuard
+     */
+    protected function guard()
+    {
+        return Auth::guard('investor');
     }
 }

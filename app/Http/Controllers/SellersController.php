@@ -75,7 +75,7 @@ class SellersController extends Controller
             'company_name' => $request['company_name'],
             'company_address' => $request['company_address'],
             'phone_number' => $request['phone_number'],
-            'actor_status' => $request['actor_status'],
+            'actor_status' => 'Pengepul',
             'short_description' => $request['short_description'],
             'username' => $request['username'],
             'email' => $request['email'],

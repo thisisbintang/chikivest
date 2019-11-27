@@ -31,7 +31,7 @@ class Investor extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = ['name', 'address', 'company_name', 'company_address', 'phone_number', 'actor_status', 'short_description', 'email', 'username', 'password'];
+    protected $fillable = ['name', 'address', 'company_name', 'company_address', 'phone_number', 'actor_status', 'short_description', 'email', 'username', 'password', 'photo_profile'];
 
     /**
      * The attributes that should be hidden for arrays.

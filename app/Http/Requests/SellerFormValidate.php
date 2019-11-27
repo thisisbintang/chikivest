@@ -29,7 +29,6 @@ class SellerFormValidate extends FormRequest
             'company_name' => 'required|string|max:255',
             'company_address' => 'required|string|max:255',
             'phone_number' => 'required|regex:/^(08)[0-9]{9,11}$/|unique:sellers',
-            'actor_status' => 'required|string|max:30',
             'short_description' => 'required|string|max:255',
             'username' => 'required|string|min:3|max:16|unique:sellers',
             'email' => 'required|string|email|max:255|unique:sellers',
