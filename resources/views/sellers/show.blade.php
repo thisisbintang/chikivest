@@ -24,10 +24,6 @@
                         <table class="table">
                             <tbody>
                             <tr>
-                                <th>ID</th>
-                                <td>{{ $seller->id }}</td>
-                            </tr>
-                            <tr>
                                 <th> Nama</th>
                                 <td> {{ $seller->name }} </td>
                             </tr>

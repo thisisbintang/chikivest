@@ -24,10 +24,6 @@
                         <table class="table">
                             <tbody>
                             <tr>
-                                <th>ID</th>
-                                <td>{{ $grazier->id }}</td>
-                            </tr>
-                            <tr>
                                 <th> Nama</th>
                                 <td> {{ $grazier->name }} </td>
                             </tr>

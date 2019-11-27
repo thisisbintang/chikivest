@@ -31,18 +31,14 @@
                     <br/>
                     <br/>
                     <div class="table-responsive">
-                        <table class="table">
-                            <thead>
+                        <table class="table table-hover">
+                            <thead class="thead-light">
                             <tr>
                                 <th>#</th>
                                 <th>Nama</th>
-                                <th>Alamat Rumah</th>
-                                <th>Nama Perusahaan</th>
-                                <th>Alamat Perusahaan</th>
-                                <th>Nomor Telepon</th>
-                                <th>Deskripsi Singkat</th>
                                 <th>Alamat Email</th>
                                 <th>Username</th>
+                                <th>Aksi</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -50,11 +46,6 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->name }}</td>
-                                    <td>{{ $item->address }}</td>
-                                    <td>{{ $item->company_name }}</td>
-                                    <td>{{ $item->company_address }}</td>
-                                    <td>{{ $item->phone_number }}</td>
-                                    <td>{{ $item->short_description }}</td>
                                     <td>{{ $item->email }}</td>
                                     <td>{{ $item->username }}</td>
                                     <td>

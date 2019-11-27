@@ -28,7 +28,7 @@ class InvestorsController extends Controller
     public function index(Request $request)
     {
         $keyword = $request->get('search');
-        $perPage = 25;
+        $perPage = 5;
 
         if (!empty($keyword)) {
             $investors = Investor::where('name', 'LIKE', "%$keyword%")
@@ -38,9 +38,9 @@ class InvestorsController extends Controller
                 ->orWhere('phone_number', 'LIKE', "%$keyword%")
                 ->orWhere('actor_status', 'LIKE', "%$keyword%")
                 ->orWhere('short_description', 'LIKE', "%$keyword%")
-                ->latest()->paginate($perPage);
+                ->paginate($perPage);
         } else {
-            $investors = Investor::latest()->paginate($perPage);
+            $investors = Investor::paginate($perPage);
         }
 
         return view('investors.index', compact('investors'));
@@ -66,9 +66,18 @@ class InvestorsController extends Controller
     public function store(Requests\InvestorFormValidate $request)
     {
 
-        $requestData = $request->all();
-
-        Investor::create($requestData);
+        Investor::create([
+            'name' => $request['name'],
+            'address' => $request['address'],
+            'company_name' => $request['company_name'],
+            'company_address' => $request['company_address'],
+            'phone_number' => $request['phone_number'],
+            'actor_status' => $request['actor_status'],
+            'short_description' => $request['short_description'],
+            'username' => $request['username'],
+            'email' => $request['email'],
+            'password' => bcrypt($request['password']),
+        ]);
 
         return redirect('investors')->with('flash_message', 'Investor added!');
     }

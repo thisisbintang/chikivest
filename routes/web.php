@@ -47,3 +47,4 @@ Route::resource('graziers', 'GraziersController');
 Route::resource('breeders', 'BreedersController');
 Route::resource('sellers', 'SellersController');
 Route::resource('investment-packages', 'InvestmentPackagesController');
+Route::resource('investment-packages', 'InvestmentPackagesController');

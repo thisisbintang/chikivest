@@ -28,7 +28,7 @@ class SellersController extends Controller
     public function index(Request $request)
     {
         $keyword = $request->get('search');
-        $perPage = 25;
+        $perPage = 5;
 
         if (!empty($keyword)) {
             $sellers = Seller::where('name', 'LIKE', "%$keyword%")
@@ -41,9 +41,9 @@ class SellersController extends Controller
                 ->orWhere('email', 'LIKE', "%$keyword%")
                 ->orWhere('username', 'LIKE', "%$keyword%")
                 ->orWhere('password', 'LIKE', "%$keyword%")
-                ->latest()->paginate($perPage);
+                ->paginate($perPage);
         } else {
-            $sellers = Seller::latest()->paginate($perPage);
+            $sellers = Seller::paginate($perPage);
         }
 
         return view('sellers.index', compact('sellers'));
@@ -69,9 +69,18 @@ class SellersController extends Controller
     public function store(Requests\SellerFormValidate $request)
     {
 
-        $requestData = $request->all();
-
-        Seller::create($requestData);
+        Seller::create([
+            'name' => $request['name'],
+            'address' => $request['address'],
+            'company_name' => $request['company_name'],
+            'company_address' => $request['company_address'],
+            'phone_number' => $request['phone_number'],
+            'actor_status' => $request['actor_status'],
+            'short_description' => $request['short_description'],
+            'username' => $request['username'],
+            'email' => $request['email'],
+            'password' => bcrypt($request['password']),
+        ]);
 
         return redirect('sellers')->with('flash_message', 'Seller added!');
     }

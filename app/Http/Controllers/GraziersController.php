@@ -28,7 +28,7 @@ class GraziersController extends Controller
     public function index(Request $request)
     {
         $keyword = $request->get('search');
-        $perPage = 25;
+        $perPage = 5;
 
         if (!empty($keyword)) {
             $graziers = Grazier::where('name', 'LIKE', "%$keyword%")
@@ -41,9 +41,9 @@ class GraziersController extends Controller
                 ->orWhere('email', 'LIKE', "%$keyword%")
                 ->orWhere('username', 'LIKE', "%$keyword%")
                 ->orWhere('password', 'LIKE', "%$keyword%")
-                ->latest()->paginate($perPage);
+                ->paginate($perPage);
         } else {
-            $graziers = Grazier::latest()->paginate($perPage);
+            $graziers = Grazier::paginate($perPage);
         }
 
         return view('graziers.index', compact('graziers'));
@@ -69,9 +69,18 @@ class GraziersController extends Controller
     public function store(Requests\GrazierFormValidate $request)
     {
 
-        $requestData = $request->all();
-
-        Grazier::create($requestData);
+        Grazier::create([
+            'name' => $request['name'],
+            'address' => $request['address'],
+            'company_name' => $request['company_name'],
+            'company_address' => $request['company_address'],
+            'phone_number' => $request['phone_number'],
+            'actor_status' => $request['actor_status'],
+            'short_description' => $request['short_description'],
+            'username' => $request['username'],
+            'email' => $request['email'],
+            'password' => bcrypt($request['password']),
+        ]);
 
         return redirect('graziers')->with('flash_message', 'Grazier added!');
     }

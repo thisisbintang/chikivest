@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>chikivest | Situs Investasi Ternak Ayam</title>
     <!-- plugins:css -->
+{{--    <link rel="stylesheet" href="{{asset('css/app.css')}}">--}}
     <link rel="stylesheet" href="{{asset('vendors/iconfonts/font-awesome/css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('vendors/iconfonts/mdi/css/materialdesignicons.min.css')}}">
     <link rel="stylesheet" href="{{asset('vendors/iconfonts/ionicons/css/ionicons.css')}}">
@@ -19,6 +20,7 @@
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <link rel="stylesheet" href="{{asset('css/shared/style.css')}}">
+    <link rel="stylesheet" href="{{asset('css/dataTables.bootstrap4.min.css')}}">
     <!-- endinject -->
     <!-- Layout styles -->
     <link rel="stylesheet" href="{{asset('css/demo_1/style.css')}}">
@@ -55,6 +57,8 @@
 <script src="{{asset('vendors/js/vendor.bundle.addons.js')}}"></script>
 <!-- endinject -->
 <!-- inject:js -->
+<script src="{{asset('js/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('js/dataTables.bootstrap4.min.js')}}"></script>
 <script src="{{asset('js/shared/off-canvas.js')}}"></script>
 <script src="{{asset('js/shared/misc.js')}}"></script>
 <!-- endinject -->

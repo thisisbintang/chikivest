@@ -32,7 +32,7 @@ class GrazierFormValidate extends FormRequest
             'actor_status' => 'required|string|max:30',
             'short_description' => 'required|string|max:255',
             'username' => 'required|string|min:3|max:16|unique:graziers',
-            'email' => 'required|string|email|max:255|unique:grazier',
+            'email' => 'required|string|email|max:255|unique:graziers',
             'password' => 'required|string|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/',
         ];
     }
