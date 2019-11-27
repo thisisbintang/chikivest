@@ -26,9 +26,7 @@ Route::group(['prefix' => 'investor'], function () {
     Route::post('/login', 'Users\Investor\Auth\LoginController@login');
     Route::post('/logout', 'Users\Investor\Auth\LoginController@logout')->name('investor.logout');
     Route::get('/', 'Users\Investor\HomeController@index')->name('investor.home');
-//    Route::get('/profile/{id}', 'ProfilesController@show')->name('investor.profile');
-//    Route::get('/update-profile/{id}', 'ProfilesController@edit')->name('investor.profile.edit');
-//    Route::post('/profile/{id}', 'ProfilesController@update')->name('investor.profile.update');
+    Route::resource('investment-packages', 'InvestmentPackagesController');
 });
 
 Route::group(['prefix' => 'breeder'], function () {
@@ -36,6 +34,7 @@ Route::group(['prefix' => 'breeder'], function () {
     Route::post('/login', 'Users\Breeder\Auth\LoginController@login');
     Route::post('/logout', 'Users\Breeder\Auth\LoginController@logout')->name('breeder.logout');
     Route::get('/', 'Users\Breeder\HomeController@index')->name('breeder.home');
+    Route::resource('d-o-cs', 'DOCsController');
 });
 
 Route::group(['prefix' => 'grazier'], function () {
@@ -43,6 +42,7 @@ Route::group(['prefix' => 'grazier'], function () {
     Route::post('/login', 'Users\Grazier\Auth\LoginController@login');
     Route::post('/logout', 'Users\Grazier\Auth\LoginController@logout')->name('grazier.logout');
     Route::get('/', 'Users\Grazier\HomeController@index')->name('grazier.home');
+    Route::resource('operational-graziers', 'OperationalGraziersController');
 });
 
 Route::group(['prefix' => 'seller'], function () {
@@ -56,3 +56,5 @@ Route::resource('investors', 'InvestorsController');
 Route::resource('graziers', 'GraziersController');
 Route::resource('breeders', 'BreedersController');
 Route::resource('sellers', 'SellersController');
+Route::resource('investment-packages', 'InvestmentPackagesController');
+

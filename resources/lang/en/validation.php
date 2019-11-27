@@ -125,6 +125,11 @@ return [
         'phone_number' => 'nomor telepon',
         'actor_status' => 'status aktor',
         'short_description' => 'deskripsi singkat',
+        'typeChicken' => 'jenis ayam',
+        'chickenPrice' => 'harga ayam',
+        'unit' => 'satuan',
+        'operationalCode' => 'kode operasional peternak',
+        'cost' => 'biaya operasional ternak',
     ],
 
 ];

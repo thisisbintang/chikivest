@@ -41,9 +41,9 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{route('d-o-cs.index')}}">
                     <i class="menu-icon typcn typcn-user-outline"></i>
-                    <span class="menu-title">Fitur Pembibit</span>
+                    <span class="menu-title">Data DOC</span>
                 </a>
             </li>
         @elseif(Auth::guard('grazier')->check())
@@ -54,9 +54,9 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{route('operational-graziers.index')}}">
                     <i class="menu-icon typcn typcn-user-outline"></i>
-                    <span class="menu-title">Fitur Peternak</span>
+                    <span class="menu-title">Data Biaya Operaional Peternak</span>
                 </a>
             </li>
         @elseif(Auth::guard('seller')->check())
