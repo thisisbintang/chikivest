@@ -22,7 +22,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{route('investment-packages.index')}}">
                     <i class="menu-icon typcn typcn-bell"></i>
                     <span class="menu-title">Data Paket Investasi</span>
                 </a>
@@ -67,9 +67,9 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{route('chicken-price-offers.index')}}">
                     <i class="menu-icon typcn typcn-user-outline"></i>
-                    <span class="menu-title">Fitur Pengepul</span>
+                    <span class="menu-title">Data Penawaran Harga Beli Ayam</span>
                 </a>
             </li>
         @elseif(Auth::guard()->check())
@@ -104,7 +104,7 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="{{route('investment-packages.index')}}">
                     <i class="menu-icon typcn typcn-bell"></i>
                     <span class="menu-title">Data Paket Investasi</span>
                 </a>

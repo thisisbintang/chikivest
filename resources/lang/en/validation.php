@@ -59,7 +59,7 @@ return [
     'mimes' => 'The :attribute must be a file of type: :values.',
     'mimetypes' => 'The :attribute must be a file of type: :values.',
     'min' => [
-        'numeric' => 'The :attribute must be at least :min.',
+        'numeric' => 'Kolom :attribute harus lebih dari :min.',
         'file' => 'The :attribute must be at least :min kilobytes.',
         'string' => 'Kolom :attribute tidak mungkin kurang dari :min karakter.',
         'array' => 'The :attribute must have at least :min items.',
@@ -129,7 +129,16 @@ return [
         'chickenPrice' => 'harga ayam',
         'unit' => 'satuan',
         'operationalCode' => 'kode operasional peternak',
-        'cost' => 'biaya operasional ternak',
+        'cost' => 'biaya operasional peternak (Rp.)',
+        'codePriceOffer' => 'kode penawaran harga beli seekor ayam',
+        'chickenPriceOffer' => 'penawaran harga beli seekor ayam (Rp.)',
+        'breeder_name' => 'nama pembibit',
+        'grazier_name' => 'nama peternak',
+        'seller_name' => 'nama_pengepul',
+        'totalDocOperational' => 'total harga doc dan biaya operasional peternak (Rp.)',
+        'totalCapital' => 'total modal',
+        'income' => 'total perkiraan keuntungan (Rp.)',
+        'package_name' => 'nama paket',
     ],
 
 ];

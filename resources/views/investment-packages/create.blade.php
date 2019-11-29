@@ -1,34 +1,34 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="row">
-            @include('admin.sidebar')
+    <div class="row page-title-header">
+        <div class="col-12">
+            <div class="page-header">
+                <h4 class="page-title">Tambah Data Paket Investasi</h4>
+                <div class="quick-link-wrapper ml-2 d-md-flex flex-md-wrap">
+                    <ul class="quick-links">
+                        <li><a href="{{route('investment-packages.index')}}">Data Paket Investasi</a></li>
+                        <li><strong>Tambah Data Paket Investasi</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
 
-            <div class="col-md-9">
-                <div class="card">
-                    <div class="card-header">Create New InvestmentPackage</div>
-                    <div class="card-body">
-                        <a href="{{ url('/investment-packages') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
-                        <br />
-                        <br />
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header">Tambah Data Paket Investasi</div>
+                <div class="card-body">
 
-                        @if ($errors->any())
-                            <ul class="alert alert-danger">
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        @endif
+                    <form method="POST" action="{{ route('investment-packages.store') }}" accept-charset="UTF-8"
+                          class="form-horizontal" enctype="multipart/form-data">
+                        {{ csrf_field() }}
 
-                        <form method="POST" action="{{ url('/investment-packages') }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
-                            {{ csrf_field() }}
+                        @include ('investment-packages.form', ['formMode' => 'create'])
 
-                            @include ('investment-packages.form', ['formMode' => 'create'])
+                    </form>
 
-                        </form>
-
-                    </div>
                 </div>
             </div>
         </div>

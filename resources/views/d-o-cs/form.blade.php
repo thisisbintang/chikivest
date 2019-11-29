@@ -9,8 +9,8 @@
     {!! $errors->first('chickenPrice', '<small class="text-danger">:message</small>') !!}
 </div>
 <div class="form-group {{ $errors->has('unit') ? 'has-error' : ''}}">
-    <label for="unit" class="control-label">{{ 'Satuan' }}</label>
-    <input class="form-control" name="unit" type="text" id="unit" value="{{ isset($doc->unit) ? $doc->unit : old('unit')}}" >
+    <label for="unit" class="control-label">{{ 'Satuan (ekor)' }}</label>
+    <input class="form-control" name="unit" type="number" id="unit" value="{{ isset($doc->unit) ? $doc->unit : old('unit')}}" >
     {!! $errors->first('unit', '<small class="text-danger">:message</small>') !!}
 </div>
 

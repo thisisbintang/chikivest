@@ -29,14 +29,14 @@ class OperationalGraziersController extends Controller
     public function index(Request $request)
     {
         $keyword = $request->get('search');
-        $perPage = 25;
+        $perPage = 5;
 
         if (!empty($keyword)) {
             $operationalgraziers = OperationalGrazier::where('operationalCode', 'LIKE', "%$keyword%")
-                ->orWhere('cost', 'LIKE', "%$keyword%")
+                ->orWhere('cost', 'LIKE', "%$keyword%")->orWhere('grazier_id', Auth::user()->id)
                 ->paginate($perPage);
         } else {
-            $operationalgraziers = OperationalGrazier::paginate($perPage);
+            $operationalgraziers = OperationalGrazier::where('grazier_id', Auth::user()->id)->paginate($perPage);
         }
 
         return view('operational-graziers.index', compact('operationalgraziers'));

@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class InvestmentPackage extends Model
+class ChickenPriceOffer extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'investment_packages';
+    protected $table = 'chicken_price_offers';
 
     /**
      * The database primary key value.
@@ -25,7 +25,7 @@ class InvestmentPackage extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'totalCapital', 'income', 'doc_id', 'og_id', 'cpo_id', 'breeder_id', 'grazier_id', 'seller_id'];
+    protected $fillable = ['codePriceOffer', 'chickenPriceOffer', 'seller_id'];
 
 
 }

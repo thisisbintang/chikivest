@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class DOCFormValidate extends FormRequest
+class ChickenPriceOfferFormValidation extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,7 @@ class DOCFormValidate extends FormRequest
     public function rules()
     {
         return [
-            'typeChicken' => 'required|string|max:30',
-            'chickenPrice' => 'required|integer|min:1',
-            'unit' => 'required|integer|min:1',
+            'chickenPriceOffer' => 'required|integer|min:1',
         ];
     }
 }

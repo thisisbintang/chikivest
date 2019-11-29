@@ -33,12 +33,13 @@ class DOCsController extends Controller
         $perPage = 5;
 
         if (!empty($keyword)) {
-            $docs = DOC::where('typeChicken', 'LIKE', "%$keyword%")
+            $docs = DOC::where('breeder_id', Auth::user()->id)
+                ->orWhere('typeChicken', 'LIKE', "%$keyword%")
                 ->orWhere('chickenPrice', 'LIKE', "%$keyword%")
                 ->orWhere('unit', 'LIKE', "%$keyword%")
                 ->paginate($perPage);
         } else {
-            $docs = DOC::paginate($perPage);
+            $docs = DOC::where('breeder_id', Auth::user()->id)->paginate($perPage);
         }
 
         return view('d-o-cs.index', compact('docs'));

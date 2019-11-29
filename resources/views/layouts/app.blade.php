@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>chikivest | Situs Investasi Ternak Ayam</title>
     <!-- plugins:css -->
-{{--    <link rel="stylesheet" href="{{asset('css/app.css')}}">--}}
+    {{--    <link rel="stylesheet" href="{{asset('css/app.css')}}">--}}
     <link rel="stylesheet" href="{{asset('vendors/iconfonts/font-awesome/css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('vendors/iconfonts/mdi/css/materialdesignicons.min.css')}}">
     <link rel="stylesheet" href="{{asset('vendors/iconfonts/ionicons/css/ionicons.css')}}">
@@ -53,6 +53,7 @@
 @endif
 <!-- container-scroller -->
 <!-- plugins:js -->
+<script src="{{asset('js/jquery-3.4.1.min.js')}}"></script>
 <script src="{{asset('vendors/js/vendor.bundle.base.js')}}"></script>
 <script src="{{asset('vendors/js/vendor.bundle.addons.js')}}"></script>
 <!-- endinject -->

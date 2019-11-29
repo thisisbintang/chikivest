@@ -2,10 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Breeder;
+use App\ChickenPriceOffer;
+use App\DOC;
+use App\Grazier;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\InvestmentPackage;
+use App\OperationalGrazier;
+use App\Seller;
 use Illuminate\Http\Request;
 
 class InvestmentPackagesController extends Controller
@@ -18,18 +24,20 @@ class InvestmentPackagesController extends Controller
     public function index(Request $request)
     {
         $keyword = $request->get('search');
-        $perPage = 25;
+        $perPage = 5;
 
         if (!empty($keyword)) {
             $investmentpackages = InvestmentPackage::where('breeder_id', 'LIKE', "%$keyword%")
                 ->orWhere('grazier_id', 'LIKE', "%$keyword%")
                 ->orWhere('seller_id', 'LIKE', "%$keyword%")
-                ->latest()->paginate($perPage);
+                ->paginate($perPage);
         } else {
-            $investmentpackages = InvestmentPackage::latest()->paginate($perPage);
+            $investmentpackages = InvestmentPackage::paginate($perPage);
         }
-
-        return view('investment-packages.index', compact('investmentpackages'));
+        $breeders = Breeder::get();
+        $graziers = Grazier::get();
+        $sellers = Seller::get();
+        return view('investment-packages.index', compact('investmentpackages', 'breeders', 'graziers', 'sellers'));
     }
 
     /**
@@ -39,7 +47,13 @@ class InvestmentPackagesController extends Controller
      */
     public function create()
     {
-        return view('investment-packages.create');
+        $breeders = Breeder::get();
+        $docs = DOC::get();
+        $graziers = Grazier::get();
+        $ogs = OperationalGrazier::get();
+        $sellers = Seller::get();
+        $cpos = ChickenPriceOffer::get();
+        return view('investment-packages.create', compact('breeders', 'docs', 'graziers', 'ogs', 'sellers', 'cpos'));
     }
 
     /**
@@ -49,20 +63,29 @@ class InvestmentPackagesController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function store(Request $request)
+    public function store(Requests\InvestmenPackageFormValidation $request)
     {
-        
-        $requestData = $request->all();
-        
-        InvestmentPackage::create($requestData);
 
-        return redirect('investment-packages')->with('flash_message', 'InvestmentPackage added!');
+
+        InvestmentPackage::create([
+            'name' => $request['name'],
+            'totalCapital' => $request['totalCapital'],
+            'income' => $request['income'],
+            'breeder_id' => $request['breeder_id'],
+            'grazier_id' => $request['grazier_id'],
+            'seller_id' => $request['seller_id'],
+            'doc_id' => $request['doc_id'],
+            'og_id' => $request['og_id'],
+            'cpo_id' => $request['cpo_id'],
+        ]);
+
+        return redirect()->route('investment-packages.index')->with('flash_message', 'InvestmentPackage added!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      *
      * @return \Illuminate\View\View
      */
@@ -76,7 +99,7 @@ class InvestmentPackagesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      *
      * @return \Illuminate\View\View
      */
@@ -91,25 +114,25 @@ class InvestmentPackagesController extends Controller
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @param  int  $id
+     * @param int $id
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request, $id)
+    public function update(Requests\InvestmenPackageFormValidation $request, $id)
     {
-        
+
         $requestData = $request->all();
-        
+
         $investmentpackage = InvestmentPackage::findOrFail($id);
         $investmentpackage->update($requestData);
 
-        return redirect('investment-packages')->with('flash_message', 'InvestmentPackage updated!');
+        return redirect()->route('investment-packages.index')->with('flash_message', 'InvestmentPackage updated!');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
@@ -117,6 +140,6 @@ class InvestmentPackagesController extends Controller
     {
         InvestmentPackage::destroy($id);
 
-        return redirect('investment-packages')->with('flash_message', 'InvestmentPackage deleted!');
+        return redirect()->route('investment-packages.index')->with('flash_message', 'InvestmentPackage deleted!');
     }
 }

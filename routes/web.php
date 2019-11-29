@@ -50,6 +50,7 @@ Route::group(['prefix' => 'seller'], function () {
     Route::post('/login', 'Users\Seller\Auth\LoginController@login');
     Route::post('/logout', 'Users\Seller\Auth\LoginController@logout')->name('seller.logout');
     Route::get('/', 'Users\Seller\HomeController@index')->name('seller.home');
+    Route::resource('chicken-price-offers', 'ChickenPriceOffersController');
 });
 
 Route::resource('investors', 'InvestorsController');

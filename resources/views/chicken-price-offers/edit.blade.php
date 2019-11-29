@@ -4,11 +4,11 @@
     <div class="row page-title-header">
         <div class="col-12">
             <div class="page-header">
-                <h4 class="page-title">Ubah Data Paket Investasi</h4>
+                <h4 class="page-title">Ubah Data Penawaran Harga Beli Ayam</h4>
                 <div class="quick-link-wrapper ml-2 d-md-flex flex-md-wrap">
                     <ul class="quick-links">
-                        <li><a href="{{route('investment-packages.index')}}">Data Paket Investasi</a></li>
-                        <li><strong>Ubah Data Paket Investasi</strong></li>
+                        <li><a href="{{route('breeders.index')}}">Data Penawaran Harga Beli Ayam</a></li>
+                        <li><strong>Ubah Data Penawaran Harga Beli Ayam</strong></li>
                     </ul>
                 </div>
             </div>
@@ -20,12 +20,13 @@
             <div class="card">
                 <div class="card-body">
 
-                    <form method="POST" action="{{ route('investment-packages.update', $investmentpackage->id) }}"
+
+                    <form method="POST" action="{{ route('chicken-price-offers.update',$chickenpriceoffer->id) }}"
                           accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
                         {{ method_field('PATCH') }}
                         {{ csrf_field() }}
 
-                        @include ('investment-packages.form', ['formMode' => 'edit'])
+                        @include ('chicken-price-offers.form', ['formMode' => 'edit'])
 
                     </form>
 
